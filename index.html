@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#fff3f6">
+  <title>For You ♡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="background-decorations"></div>
+
+  <audio id="music" preload="auto" loop>
+    <source src="audio/we_fell_in_love_in_october.mp3" type="audio/mpeg">
+  </audio>
+
+  <main class="app">
+    <header class="topbar">
+      <button id="backBtn" class="round-btn" aria-label="Previous page">‹</button>
+      <div id="progress" class="progress"></div>
+      <span id="pageCount" class="page-count">1/4</span>
+    </header>
+
+    <section id="page1" class="page active"></section>
+    <section id="page2" class="page"></section>
+    <section id="page3" class="page"></section>
+    <section id="page4" class="page"></section>
+  </main>
+
+  <div id="modal" class="modal hidden"></div>
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

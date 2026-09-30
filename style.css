@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Patrick+Hand&display=swap');
+
+:root{
+  --pink:#f56f91; --pink2:#ffdce7; --rose:#ff9db6; --cream:#fffdf9;
+  --ink:#624752; --gold:#d6aa77; --shadow:0 16px 40px rgba(130,65,88,.14);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Comic Neue",system-ui,sans-serif;color:var(--ink);background:#fff8f0}
+body{overflow-x:hidden}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.app{width:100%;max-width:430px;min-height:100vh;margin:auto;background:linear-gradient(#fffdf9,#fff9fa 55%,#fff3f6);position:relative;z-index:2;box-shadow:0 0 40px rgba(90,50,60,.1);padding-bottom:18px}
+.topbar{height:72px;padding:22px 20px 8px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}
+.round-btn{width:34px;height:34px;border-radius:50%;border:1px solid #f2c4d1;background:#fff;color:#e4547b;font-size:25px;line-height:1;box-shadow:0 3px 10px #f5d9e2}
+.round-btn:disabled{visibility:hidden}
+.page-count{font-size:11px;color:#e55a7c;font-weight:bold;width:34px;text-align:right}
+.progress{display:flex;gap:7px}
+.progress button{border:0;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:.25s;background:#fde8ef;color:#f2a2b8}
+.progress button.current{width:29px;height:29px;background:#f56f91;color:white;box-shadow:0 4px 12px #f7c0cf;transform:scale(1.05)}
+.progress button.done{width:25px;height:25px;background:#f9ccd9;color:#df6284}
+.progress button.future{width:22px;height:22px}
+.page{display:none;padding:4px 18px 25px;min-height:calc(100vh - 72px)}
+.page.active{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.bg-particle{position:fixed;pointer-events:none;z-index:0;opacity:.45;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-15px) rotate(5deg)}}
+
+.welcome{text-align:center;min-height:calc(100vh - 100px);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.kicker{color:#ed7695;font-size:12px;font-weight:bold;letter-spacing:2px}
+.welcome h1{font-size:31px;line-height:1.05;margin:12px 0 8px;color:#bd5575}
+.name{font-family:"Patrick Hand",cursive;font-size:24px;color:#e17b98}
+.usagi{font-size:100px;filter:drop-shadow(0 10px 5px rgba(220,110,140,.18));animation:bunny 2s ease-in-out infinite}
+@keyframes bunny{50%{transform:translateY(-8px) rotate(-2deg)}}
+.heart{color:#f56f91}
+.primary{border:0;color:white;background:linear-gradient(90deg,#f47f9d,#f35f84,#f47f9d);padding:14px 34px;border-radius:28px;font-weight:bold;box-shadow:0 10px 24px #f7c2d1;margin-top:22px}
+.primary:active,.secondary:active{transform:scale(.96)}
+.subtle{font-size:12px;color:#c18496;margin-top:12px}
+
+.journey{position:relative;min-height:calc(100vh - 100px);overflow:hidden;border-radius:28px;background:linear-gradient(#fff1f6,#ffdce8 58%,#fff0d9)}
+.sky{height:48vh;min-height:350px;position:relative;overflow:hidden}
+.sun{position:absolute;left:25px;top:20px;font-size:45px;animation:pulse 2s infinite}
+.clouds{position:absolute;top:50px;white-space:nowrap;font-size:25px;animation:cloudmove 15s linear infinite}
+@keyframes cloudmove{to{transform:translateX(-360px)}}
+.hills{position:absolute;bottom:0;width:150%;height:130px;background:radial-gradient(ellipse at 50% 100%,#b9e3a8 0 48%,transparent 49%),linear-gradient(#b9e3a8,#a8d693);border-radius:50% 50% 0 0}
+.road{position:absolute;bottom:0;width:100%;height:88px;background:#e8c6bd;clip-path:polygon(30% 0,70% 0,100% 100%,0 100%)}
+.path-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:15px;z-index:4}
+.path-dot{width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid #f5a6b9;box-shadow:0 3px 7px #c99}
+.car{position:absolute;bottom:54px;left:50%;transform:translateX(-50%);font-size:82px;z-index:5;transition:left .55s ease;filter:drop-shadow(0 8px 5px #b78)}
+.car.driving{animation:drive .35s infinite alternate}
+@keyframes drive{to{transform:translateX(-50%) translateY(-5px) rotate(-1deg)}}
+.journey-card{position:absolute;left:18px;right:18px;bottom:18px;background:#fffdf9ed;border:2px solid #f5cbd7;border-radius:25px;padding:17px;text-align:center;z-index:8;box-shadow:var(--shadow)}
+.journey-card h2{margin:0 0 5px;color:#c45c7c;font-size:20px}
+.journey-card p{margin:0;font-size:13px}
+.journey-card .primary{margin-top:12px;padding:11px 22px}
+.vault{display:none;position:absolute;inset:0;background:#fff3f7eF;z-index:10;align-items:center;justify-content:center;text-align:center;padding:30px}
+.vault.show{display:flex}
+.vault-box{background:white;border:2px solid #efbfd0;border-radius:28px;padding:30px 20px;box-shadow:var(--shadow)}
+.vault-box .usagi{font-size:70px}
+
+.museum{background:linear-gradient(#fff8fa,#f8eaf0);border-radius:28px;padding:14px 10px 22px;min-height:calc(100vh - 100px)}
+.museum-title{text-align:center;background:#fffdf9;border:2px solid #e7c99e;border-radius:14px;padding:10px;box-shadow:0 5px 12px #dcc6b0}
+.museum-title h2{font-size:17px;margin:0;color:#715044;letter-spacing:3px}
+.museum-title p{font-size:10px;color:#c35e80;margin:3px 0 0}
+.curator{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0;font-size:11px}
+.curator .mini{font-size:38px}
+.exhibits{display:flex;flex-direction:column;gap:26px}
+.exhibit{text-align:center;cursor:pointer}
+.frame{padding:10px;border-radius:18px;background:linear-gradient(135deg,#e6c2a4,#b77f59);border:3px solid #f8eadc;box-shadow:0 12px 25px #a36d5b44;transition:.25s}
+.exhibit:hover .frame,.exhibit:active .frame{transform:scale(1.02)}
+.frame img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:7px solid #f9f5ef;border-radius:10px}
+.plaque{display:inline-block;margin-top:9px;min-width:75%;background:#fffdf9;border:2px solid #d5ad7f;border-radius:8px;padding:7px 10px;font-size:11px}
+.plaque strong{display:block;color:#82583f}
+.next-museum{width:100%;margin-top:20px}
+
+.final{position:relative}
+.final h2{text-align:center;color:#bd5575;margin:5px 0 4px}
+.final .hero-bunny{text-align:center;font-size:70px;margin:0 0 4px}
+.letter{background:#ffffffee;border:2px solid #f1c4d3;border-radius:25px;padding:20px;box-shadow:var(--shadow);max-height:58vh;overflow:auto;white-space:pre-line;font-family:"Patrick Hand",cursive;font-size:18px;line-height:1.55}
+.typewriter{min-height:180px}
+.letter-tools{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #f6dfe6;margin-top:15px;padding-top:12px;font-family:"Comic Neue",sans-serif;font-size:11px;color:#dc7793}
+.secondary{border:1px solid #f0bfd0;background:#fdebf1;color:#c95074;border-radius:20px;padding:8px 14px;font-weight:bold}
+.restart{width:100%;margin-top:16px}
+
+.modal{position:fixed;inset:0;background:#0006;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal.hidden{display:none}
+.modal-card{width:min(410px,100%);max-height:90vh;overflow:auto;background:#fffdf9;border-radius:25px;padding:20px;border:2px solid #f0c5d2}
+.modal-card h2{margin:0 0 15px;color:#c45c7c}
+.field{margin:12px 0}.field label{display:block;font-size:11px;margin-bottom:5px;color:#85606b}
+.field input,.field textarea{width:100%;border:1px solid #edc6d2;border-radius:12px;padding:9px;background:white}
+.field textarea{min-height:180px;resize:vertical}
+.modal-actions{display:flex;gap:8px}.modal-actions button{flex:1}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(20px);background:#5f4850;color:#fff;padding:9px 15px;border-radius:20px;font-size:12px;opacity:0;z-index:200;transition:.25s}.toast.show{opacity:1;transform:translateX(-50%)}
+
+.heart-pop{position:fixed;z-index:90;font-size:22px;pointer-events:none;animation:heartPop 1.2s forwards}
+@keyframes heartPop{to{transform:translateY(-90px) scale(1.5);opacity:0}}
+@keyframes pulse{50%{transform:scale(1.06)}}
+@media(min-width:600px){body{padding:20px 0}.app{border-radius:28px;min-height:calc(100vh - 40px);overflow:hidden}.page{min-height:calc(100vh - 110px)}}
